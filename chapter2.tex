@@ -1,3 +1,4 @@
+\pagebreak
 \section*{Chapter 2}
 \begin{enumerate}
     % Question 1.
@@ -5,12 +6,37 @@
         Check whether any of the following processes is a Markov process. Justify your answer.
     }
     \begin{enumerate}
+        % Part (a)
         \item \textcolor{question}{
-            Discrete time process $(Y_n)_{n\in \mathbb N}$ given by 
-            $Y_n = \sum_{i=0}^n X_i$, where $X_i$ are i.i.d. random variables.
+            $(Y_n)_{n\in \mathbb N}$ given by 
+            $Y_n = \sum_{i=0}^n X_i$, where $X_i$ are \iid\ random variables.
         }
 
-        Let $\mathbb F$ be natural filtration of $Y$.
+        Let $\mathbb F$ be the natural filtration of $Y$, so $\mathcal F_t = \sigma (Y_s:s\leq t)$.
+
+        \textbf{Showing that $F_t=\sigma(X_s:s\leq t)$}\\
+        TODO:
+
+        \textbf{Showing that $\sum_{i=s+1}^t X_i$ is independent to $F_s$}\\
+        TODO:
+
+        \textbf{Proving Markov Property}\\
+        Let $f:\mathbb{R}\to\mathbb{R}$ be any function. Then the conditional expectation
+        \begin{align*}
+            \mathbb E\left[f\left(Y_t\right)\middle|\mathcal F_s\right] 
+            &= \mathbb E\left[f\left(Y_s + \sum_{i=s+1}^t X_i \right)\middle|\mathcal F_s\right]\\
+            &= \mathbb E\left[f\left(y + \sum_{i=s+1}^t X_i \right)\right]\bigg|_{y=Y_s},
+        \end{align*}
+        which only depends on $\omega$ through $Y_s$, and thus is $\sigma(Y_s)$-measurable.\\
+        Therefore $Y$ is $\mathbb F$-Markov.
+
+        \pagebreak
+
+        % Part (b)
+        \item \textcolor{question}{
+            $B_t=\frac{1}{2}(W_{t+a}-W_t)$, where $a>0$, and $W$ is 
+            a Wiener process with natural filtration $\mathbb F$.
+        }
 
     \end{enumerate}
 \end{enumerate}
