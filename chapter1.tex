@@ -1,0 +1,103 @@
+\section*{Chapter 1}
+\begin{enumerate}
+    % Question 1.
+    \item \textcolor{question}{Let $(\Omega,\mathcal F,\mu)$ be a measure space.}
+    \begin{enumerate}
+        % Part (a)
+        \item \textcolor{question}{Show that a $\sigma$-algebra is closed under countable intersection.}
+
+
+        Suppose $A_i \in \mathcal F$ for a countable index set $i\in I$.
+        \begin{align*}
+            (\forall i\in I) (A_i^c &\in \mathcal F) &\text{(Closure under complement)}\\
+            \bigcup_{i\in I} A_i^c &\in \mathcal F &\text{(Closure under countable union)}\\
+            \therefore\bigcap_{i\in I} A_i = \left(\bigcup_{i\in I} A_i^c\right)^c &\in \mathcal F &\text{(Closure under complement)}.
+        \end{align*}
+
+        % Part (b)
+        \item \textcolor{question}{Discuss the difference between countable additivity and countable sub-additivity of $\mu$.}
+
+        Any measure $\mu$ must satisfy countable additivity (by definition):\\
+        Given a countable collection of \emph{disjoint} sets $A_i\in \mathcal F$,
+        $$\mu\left(\bigcup_{i\in I} A_i\right) = \sum_{i\in I}\mu(A_i).$$
+        It can be proven that measure $\mu$ must satisfy countable sub-additivity:\\
+        Given a countable collection of \emph{(not necessarily disjoint)} sets $A_i\in \mathcal F$,
+        $$\mu\left(\bigcup_{i\in I} A_i\right) = \sum_{i\in I}\mu(A_i).$$
+
+        % Part (c)
+        \item \textcolor{question}{Find an example of $\mu$ and a non-empty null $\mu$-null set.}
+
+        Let $\Omega$ be be any non-empty set, and let $\mathcal F = \{\emptyset,\Omega\}$ be the trivial $\sigma$-algebra.\\
+        Define the set function $\mu:\mathcal F\to [0,\infty]$ by $\mu(\emptyset) = \mu(\Omega) = 0$.\\
+        Then $\mu$ is a measure (countable additivity is trivial), and $\Omega$ is a non-empty $\mu$-null set.
+
+        \pagebreak
+
+        % Part (d)
+        \item \textcolor{question}{Let $\nu:\mathcal F \to [0,\infty]$ be a measure.
+        Let $a,b\in \mathbb R$. 
+        Find conditions under which $\pi = a\mu + b\nu$ defines a measure.
+        Justify your answer.}
+
+        Firstly $\pi$ must map elements in $\mathcal F$ to non-negative reals.
+        Thus $a,b$ must be such that $a\mu + b\nu\geq 0$ everywhere. 
+
+        Secondly, $\pi$ must map the empty set to $0$.\\
+        This does not impose any extra restrictions on $a,b$, as
+        \begin{align*}
+            \pi(\emptyset)
+            &= a\mu(\emptyset) + b\mu(\emptyset)\\
+            &= 0.
+        \end{align*}
+
+        Lastly, $\pi$ must satisfy countable sub-additivity.\\
+        Again, this does not impose any extra restrictions, as for any $a,b\in \mathbb R$,
+        \begin{align*}
+            \pi\left(\bigcup_{i\in i}a_i\right)
+            &= a\mu\left(\bigcup_{i\in I}A_i\right) + b\mu\left(\bigcup_{i\in I}A_i\right)\\
+            &= a\sum_{i\in I}\mu(A_i) + b\sum_{i\in I}\nu(A_i)\\
+            &= \sum_{i\in I} \pi (A_i).
+        \end{align*}
+        Thus for $\pi$ to define a measure, it is sufficient and necessary for $a\mu +b\nu\geq 0$.
+    \end{enumerate}
+
+    \pagebreak
+
+    % Question 2.
+    \item \textcolor{question}{Let $X,Y:\Omega\to\mathbb R$ be (continuous) random variables on $(\Omega,\mathcal F,\mathbb P)$.}
+    \begin{enumerate}
+        % Part (a)
+        \item 
+        \textcolor{question}{Write down the domain and co-domain of the distribution measure $\mu_X$ of $X$. 
+        Then express $\mathbb P(X\in[a, b])$ in terms of $\mu_X$, the c.d.f. $F_X$ and the p.d.f $f_X$.}
+
+        The distribution measure $\mu_X:\mathcal F\to [0,1]$ is defined by $\mu_X=\mathbb P\circ X^{-1}$.
+        $$\mathbb P(X\in[a,b])=\mu_X([a,b])=F_X(b)-F_X(a) = \int_a^b f_X(x)\,\diff x.$$
+
+        % Part (b)
+        \item 
+        \textcolor{question}{
+            Write down $\mu_X, F_X$ and $f_X$ if
+        }
+
+        \begin{enumerate}
+            \item \textcolor{question}{$X\sim \text{Uniform}([a,b])$}
+            
+            $$\mu_X= A\mapsto \frac{1}{b-a}\lambda(A\cap [a,b]).$$
+
+            \item \textcolor{question}{$X\sim \mathcal N(a,\sigma^2)$}
+
+            $$\mu_X = A\mapsto \int_A \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{1}{2}\frac{(x-a)^2}{\sigma^2}\right)\,\lambda(\diff x).$$
+        \end{enumerate}
+
+        % Part (c)
+        \item
+        \textcolor{question}{
+            For the random vector $(X,Y)$, write down the joint $\mu_{X,Y}$ and $f_{X,Y}$
+            and the conditional $\mu_{X|Y}$ and $f_{X|Y}$ if
+            $X\sim\mathcal N(0,1)$ and $Y\sim\mathcal N(a,\sigma^2)$ are jointly normal and correlated.
+        }
+    \end{enumerate}
+
+
+\end{enumerate}

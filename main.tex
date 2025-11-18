@@ -1,38 +1,5 @@
 \input{preamble.tex}
 \begin{document}
-\section*{Chapter 1}
-\begin{enumerate}
-    % Question 1.
-    \item Let $(\Omega,\mathcal F,\mu)$ be a measure space.
-    \begin{enumerate}
-        % Part (a)
-        \item Show that a $\sigma$-algebra is closed under countable intersection.
-
-        Suppose $A_i \in \mathcal F$ for a countable index set $i\in I$.
-        \begin{align*}
-            (\forall i\in I) (A_i^c &\in \mathcal F) &\text{(Closure under complement)}\\
-            \bigcup_{i\in I} A_i^c &\in \mathcal F &\text{(Closure under countable union)}\\
-            \therefore\bigcap_{i\in I} A_i = \left(\bigcup_{i\in I} A_i^c\right)^c &\in \mathcal F &\text{(Closure under complement)}.
-        \end{align*}
-
-        % Part (b)
-        \item Discuss the difference between countable additivity and countable sub-additivity of $\mu$.
-
-        Any measure $\mu$ must satisfy countable additivity (by definition):\\
-        Given a countable collection of \emph{disjoint} sets $A_i\in \mathcal F$,
-        $$\mu\left(\bigcup_{i\in I} A_i\right) = \sum_{i\in I}\mu(A_i).$$
-        It can be proven that measure $\mu$ must satisfy countable sub-additivity:\\
-        Given a countable collection of \emph{(not necessarily disjoint)} sets $A_i\in \mathcal F$,
-        $$\mu\left(\bigcup_{i\in I} A_i\right) = \sum_{i\in I}\mu(A_i).$$
-
-        % Part (c)
-        \item Find an example of $\mu$ and a non-empty null $\mu$-null set.
-
-        Let $\Omega$ be be any non-empty set, and let $\mathcal F = \{\emptyset,\Omega\}$ be the trivial $\sigma$-algebra.\\
-        Define the set function $\mu:\mathcal F\to [0,\infty]$ by $\mu(\emptyset) = \mu(\Omega) = 0$.\\
-        Then $\mu$ is a measure (countable additivity is trivial), and $\Omega$ is a non-empty $\mu$-null set.
-
-    \end{enumerate}
-
-\end{enumerate}
+    \input{chapter1.tex}
+    \input{chapter2.tex}
 \end{document}
