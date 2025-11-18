@@ -14,13 +14,25 @@
 
         Let $\mathbb F$ be the natural filtration of $Y$, so $\mathcal F_t = \sigma (Y_s:s\leq t)$.
 
-        \textbf{Showing that $F_t=\sigma(X_s:s\leq t)$}\\
-        TODO:
+        \textbf{Showing that $F_t=\sigma(X_s:s\leq t)$}
 
-        \textbf{Showing that $\sum_{i=s+1}^t X_i$ is independent to $F_s$}\\
-        TODO:
+        For all $t\in \mathbb N$, the random vector $(X_1,\dots,X_t)$ 
+        can be expressed as a function of $(Y_1,\dots,Y_t)$, and vice versa.
+        \begin{align*}
+            \begin{pmatrix}X_1\\X_2\\\vdots\\X_t\end{pmatrix}
+            \mapsto \begin{pmatrix}X_1\\ X_1 + X_2 \\\vdots\\ \sum_{i=1}^n X_i\end{pmatrix}\qquad\text{and}\qquad
+            \begin{pmatrix}Y_1\\Y_2\\\vdots\\Y_t\end{pmatrix}
+            \mapsto \begin{pmatrix}Y_1\\ Y_2 - Y_1\\\vdots\\ Y_n - Y_{n-1}\end{pmatrix}
+        \end{align*}
+        Thus the $\sigma$-algebras $\mathcal F_t = \sigma(Y_s:s\leq t)$ and $\sigma(X_s:s\leq t)$ are equivalent.
 
-        \textbf{Proving Markov Property}\\
+        \textbf{Showing that $\sum_{i=s+1}^t X_i$ is independent to $F_s$}
+
+        We know that the random vector $(X_1,\dots, X_s)$ is independent to $\sigma(X_{s+1},\dots, X_t)$.\\
+        Since $\sum_{i=s+1}^t X_i$ is a function of $(X_1,\dots, X_s)$, it is also independent to $\sigma(X_{s+1},\dots, X_t)$.
+
+        \textbf{Proving Markov Property}
+
         Let $f:\mathbb{R}\to\mathbb{R}$ be any function. Then the conditional expectation
         \begin{align*}
             \mathbb E\left[f\left(Y_t\right)\middle|\mathcal F_s\right] 
@@ -37,6 +49,11 @@
             $B_t=\frac{1}{2}(W_{t+a}-W_t)$, where $a>0$, and $W$ is 
             a Wiener process with natural filtration $\mathbb F$.
         }
+
+        The process $B_t$ is not adapted to $\mathbb F$ and therefore cannot be $\mathbb F$-Markov.
+
+        To salvage the quesiton, let $\mathbb F'$ be the filtration shifted by $a$
+        $$\mathcal F'_t = \mathcal F_{t+a}.$$
 
     \end{enumerate}
 \end{enumerate}
