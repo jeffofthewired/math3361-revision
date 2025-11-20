@@ -1,6 +1,6 @@
 all: build/main.pdf
 
-build/main.pdf: main.tex preamble.tex chapter1.tex chapter2.tex
+build/main.pdf: main.tex preamble.tex chapter1.tex chapter2.tex forum.tex
 	pdflatex --output-directory=build main.tex
 	pdflatex --output-directory=build main.tex
 

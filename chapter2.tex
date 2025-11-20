@@ -50,10 +50,59 @@
             a Wiener process with natural filtration $\mathbb F$.
         }
 
-        The process $B_t$ is not adapted to $\mathbb F$ and therefore cannot be $\mathbb F$-Markov.
+        The process $B_t$ is not adapted to $\mathbb F$ \textcolor{red}{(why?)} and therefore cannot be $\mathbb F$-Markov.
 
         To salvage the quesiton, let $\mathbb F'$ be the filtration shifted by $a$
         $$\mathcal F'_t = \mathcal F_{t+a}.$$
 
+        For $B_t$ to be $\mathbb F'$-Markov, for all functions $f:\mathbb R\to\mathbb R$,
+        and for all $0\leq s\leq t\leq T$, \\the conditional expectation
+        $\mathbb E\left[f(B_t)\middle|\mathcal F_s'\right]$
+        must be $\sigma(B_s)$-measurable.
+
+        Suppose that $t = s + r$, where $0 < r < a$.
+        \begin{align*}
+            \mathbb E\left[f\!\left(B_{s+r}\right)\middle| \mathcal F_s'\right]
+            &= \mathbb E\left[f\!\left(\frac{1}{2}(W_{s+r+a}-W_{s+r})\right)\middle| \mathcal F_{s+a}\right]\\
+            &= \mathbb E\left[f\!\left(\frac{1}{2}(W_{s+a+r}-W_{s+a} + W_{s+a} - W_{s+r})\right)\middle| \mathcal F_{s+a}\right]
+        \end{align*}
+        Note that the Wiener increment $W_{s+a+r}-W_{s+a}$ is independent of $\mathcal F_{s+a}$,\\
+        and the Wiener increment $W_{s+a} - W_{s+r}$ is $\mathcal F_{s+a}$-measurable. Thus
+        \begin{align*}
+            \mathbb E\left[f\!\left(B_{s+r}\right)\middle| \mathcal F_s'\right]
+            &= \mathbb E\left[f\!\left(\frac{1}{2}(W_{s+a+r}-W_{s+a} + x)\right)\right]\bigg|_{x=W_{s+a} - W_{s+r}},
+        \end{align*}
+        which is some function of the random variable $W_{s+a} - W_{s+r}$.
+
+        Our claim is that $B$ is not $\mathbb F'$-Markov, so we just need to 
+        find one example of when the resulting function is not $\sigma(B_s)$-measurable.
+        Let $f=x\mapsto 2x$, then
+        \begin{align*}
+            \mathbb E\left[f\!\left(B_{s+r}\right)\middle| \mathcal F_s'\right]
+            &= \mathbb E\left[W_{s+a+r}-W_{s+a} + x\right]\big|_{x=W_{s+a} - W_{s+r}}\\
+            &= \mathbb E\left[W_{s+a+r}-W_{s+a}\right] + x\big|_{x=W_{s+a} - W_{s+r}}\\
+            &= W_{s+a} - W_{s+r}\\
+            &= (W_{s+a} - W_s) - (W_{s+r} - W_s)\\
+            &= B_s - (W_{s+r} - W_s).
+        \end{align*}
+        Since $W_{s+r} - W_s$ is not $B_s$-measurable \textcolor{red}{(why?)}, the conditional expectation 
+        on the LHS is also non-measurable,
+        and thus $B$ is not $\mathbb F'$-Markov.
+
+        \pagebreak
+
+        % Part (c)
+        \item \textcolor{question}{
+            $Z_t=|W_t|$
+        }
+
+        This might be trivial?
+
     \end{enumerate}
+
+    % Question 2.
+    \item \textcolor{question}{
+        Check whether any of the following processes is a Markov process. Justify your answer.
+    }
+
 \end{enumerate}
